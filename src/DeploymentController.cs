@@ -62,7 +62,7 @@ namespace Battleships
                 _currentDirection = Direction.LeftRight;
             }
 
-            if (SwinGame.KeyTyped(KeyCode.vk_R))
+			if (SwinGame.KeyTyped(KeyCode.vk_r))
             {
                 GameController.HumanPlayer.RandomizeDeployment();
             }
@@ -199,7 +199,7 @@ namespace Battleships
             foreach (ShipName sn in Enum.GetValues(typeof(ShipName)))
             {
                 int i = 0;
-                i = Conversion.Int(sn) - 1;
+				i = Convert.ToInt32(sn) - 1;
 
                 if (UtilityFunctions.IsMouseInRectangle(SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT))
                 {

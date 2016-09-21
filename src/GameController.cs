@@ -299,10 +299,10 @@ namespace Battleships
 					MenuController.HandleSetupMenuInput();
                     break;
                 case GameState.Deploying:
-					DiscoveryController.HandleDeploymentInput();
+				DeploymentController.HandleDeploymentInput();
                     break;
                 case GameState.Discovering:
-					MenuController.HandleDiscoveryInput();
+				DiscoveryController.HandleDiscoveryInput();
                     break;
                 case GameState.EndingGame:
 					EndingGameController.HandleEndOfGameInput();
@@ -337,7 +337,7 @@ namespace Battleships
 					MenuController.DrawSettings();
                     break;
                 case GameState.Deploying:
-					MenuController.DrawDeployment();
+				DeploymentController.DrawDeployment();
                     break;
                 case GameState.Discovering:
 					DiscoveryController.DrawDiscovery();
@@ -346,7 +346,7 @@ namespace Battleships
 					EndingGameController.DrawEndOfGame();
                     break;
                 case GameState.ViewingHighScores:
-					HighScoreController..DrawHighScores();
+					HighScoreController.DrawHighScores();
                     break;
             }
 

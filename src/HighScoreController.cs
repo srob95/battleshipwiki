@@ -159,7 +159,7 @@ namespace Battleships
         {
             if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE) || SwinGame.KeyTyped(KeyCode.vk_RETURN))
             {
-                GameControlle.GameControlle.EndCurrentState();
+				GameController.EndCurrentState();
             }
         }
 
@@ -183,7 +183,7 @@ namespace Battleships
                 Score s = new Score();
                 s.Value = value;
 
-                GameControlle.AddNewState(GameState.ViewingHighScores);
+				GameController.AddNewState(GameState.ViewingHighScores);
 
                 int x = 0;
                 x = SCORES_LEFT + SwinGame.TextWidth(GameResources.GameFont("Courier"), "Name: ");
@@ -212,7 +212,7 @@ namespace Battleships
                 _Scores.Add(s);
                 _Scores.Sort();
 
-                GameControlle.EndCurrentState();
+				GameController.EndCurrentState();
             }
         }
     }

@@ -278,7 +278,6 @@ namespace Battleships
 
         private static void FreeImages()
         {
-            Bitmap obj = default(Bitmap);
 			foreach (Bitmap obj in _Images.Values) {
                 SwinGame.FreeBitmap(obj);
             }
@@ -286,15 +285,13 @@ namespace Battleships
 
         private static void FreeSounds()
         {
-            SoundEffect obj = default(SoundEffect);
-			foreach (Sound obj in _Sounds.Values) {
+			foreach (SoundEffect obj in _Sounds.Values) {
                 Audio.FreeSoundEffect(obj);
             }
         }
 
         private static void FreeMusic()
         {
-            Music obj = default(Music);
 			foreach (Music obj in _Music.Values) {
                 Audio.FreeMusic(obj);
             }

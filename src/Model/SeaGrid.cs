@@ -89,7 +89,7 @@ public class SeaGrid : ISeaGrid
 		int i = 0;
 		for (i = 0; i <= Width - 1; i++) {
 			for (int j = 0; j <= Height - 1; j++) {
-				_GameTiles[i, j] = new Tile[i, j, null];
+				_GameTiles[i, j] = new Tile(i, j, null);
 			}
 		}
 
