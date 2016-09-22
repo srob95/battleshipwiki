@@ -36,6 +36,7 @@ public class SeaGridAdapter : ISeaGrid
 		}
 	}
 
+	///Left over from vb, allows for collapsing of file
 	#region "ISeaGrid Members"
 
 	/// <summary>

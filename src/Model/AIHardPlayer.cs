@@ -88,11 +88,27 @@ public class AIHardPlayer : AIPlayer
 		HittingShip
 	}
 
+	/// <summary>
+	/// The state of the _ current.
+	/// </summary>
 	private AIStates _CurrentState = AIStates.Searching;
+	/// <summary>
+	/// The _ targets.
+	/// </summary>
 	private Stack<Target> _Targets = new Stack<Target>();
+	/// <summary>
+	/// The _ last hit.
+	/// </summary>
 	private List<Target> _LastHit = new List<Target>();
-
+	/// <summary>
+	/// The _ current target.
+	/// </summary>
 	private Target _CurrentTarget;
+
+	/// <summary>
+	/// Initializes a new instance of the <see cref="AIHardPlayer"/> class.
+	/// </summary>
+	/// <param name="game">Game.</param>
 	public AIHardPlayer(BattleShipsGame game) : base(game)
 	{
 	}

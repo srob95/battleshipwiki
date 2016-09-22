@@ -39,7 +39,10 @@ public class Player : IEnumerable<Ship>
 	public ISeaGrid Enemy {
 		set { _enemyGrid = value; }
 	}
-
+	/// <summary>
+	/// Initializes a new instance of the <see cref="Player"/> class.
+	/// </summary>
+	/// <param name="controller">Controller.</param>
 	public Player(BattleShipsGame controller)
 	{
 		_game = controller;
@@ -106,7 +109,10 @@ public class Player : IEnumerable<Ship>
 	public int Shots {
 		get { return _shots; }
 	}
-
+	/// <summary>
+	/// Gets the hits.
+	/// </summary>
+	/// <value>The hits.</value>
 	public int Hits {
 		get { return _hits; }
 	}
@@ -119,7 +125,10 @@ public class Player : IEnumerable<Ship>
 	public int Missed {
 		get { return _misses; }
 	}
-
+	/// <summary>
+	/// Gets the score.
+	/// </summary>
+	/// <value>The score.</value>
 	public int Score {
 		get {
 			if (IsDestroyed) {
@@ -144,6 +153,10 @@ public class Player : IEnumerable<Ship>
 
 		return lst.GetEnumerator();
 	}
+	/// <summary>
+	/// Gets the enumerator.
+	/// </summary>
+	/// <returns>The enumerator.</returns>
 	IEnumerator<Ship> IEnumerable<Ship>.GetEnumerator()
 	{
 		return GetShipEnumerator();
@@ -197,7 +210,9 @@ public class Player : IEnumerable<Ship>
 
 		return result;
 	}
-
+	/// <summary>
+	/// Randomizes the deployment.
+	/// </summary>
 	public virtual void RandomizeDeployment()
 	{
 		bool placementSuccessful = false;
