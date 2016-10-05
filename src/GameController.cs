@@ -15,7 +15,7 @@ namespace Battleships
     /// </summary>
     public static class GameController
     {
-
+		private static bool musicOn = false;
         private static BattleShipsGame _theGame;
         private static Player _human;
 
@@ -286,8 +286,25 @@ namespace Battleships
         {
             //Read incoming input events
             SwinGame.ProcessEvents();
+			if (SwinGame.KeyTyped (KeyCode.vk_m))
+			{
+				switch (musicOn)
+				{
+				case true:
+					SwinGame.PauseMusic (); 
+					musicOn = false;	
+					break;
+				case false:
+					SwinGame.ResumeMusic ();
+					SwinGame.PlaySoundEffect();
+					musicOn = true;
+					break;
+				}
 
-            switch (CurrentState)
+			}
+
+
+			switch (CurrentState)
             {
                 case GameState.ViewingMainMenu:
 					MenuController.HandleMainMenuInput();
@@ -299,10 +316,10 @@ namespace Battleships
 					MenuController.HandleSetupMenuInput();
                     break;
                 case GameState.Deploying:
-					DiscoveryController.HandleDeploymentInput();
+				DeploymentController.HandleDeploymentInput();
                     break;
                 case GameState.Discovering:
-					MenuController.HandleDiscoveryInput();
+				DiscoveryController.HandleDiscoveryInput();
                     break;
                 case GameState.EndingGame:
 					EndingGameController.HandleEndOfGameInput();
@@ -337,7 +354,7 @@ namespace Battleships
 					MenuController.DrawSettings();
                     break;
                 case GameState.Deploying:
-					MenuController.DrawDeployment();
+				DeploymentController.DrawDeployment();
                     break;
                 case GameState.Discovering:
 					DiscoveryController.DrawDiscovery();
@@ -346,7 +363,7 @@ namespace Battleships
 					EndingGameController.DrawEndOfGame();
                     break;
                 case GameState.ViewingHighScores:
-					HighScoreController..DrawHighScores();
+					HighScoreController.DrawHighScores();
                     break;
             }
 

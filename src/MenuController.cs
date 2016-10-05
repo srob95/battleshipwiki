@@ -207,8 +207,8 @@ namespace Battleships
             {
                 int btnLeft = 0;
                 btnLeft = MENU_LEFT + BUTTON_SEP * (i + xOffset);
-                //SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT)
-                SwinGame.DrawTextLines(_menuStructure(menu)(i), MENU_COLOR, Color.Black, GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+				SwinGame.FillRectangle (Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
+				SwinGame.DrawTextLines(_menuStructure[menu] [i], MENU_COLOR, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
 
                 if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset))
                 {
@@ -291,23 +291,20 @@ namespace Battleships
         /// The setup menu was clicked, perform the button's action.
         /// </summary>
         /// <param name="button">the button pressed</param>
-        private static void PerformSetupMenuAction(int button)
-        {
-            switch (button)
-            {
-                case SETUP_MENU_EASY_BUTTON:
-                    GameController.SetDifficulty(AIOption.Hard);
-                    break;
-                case SETUP_MENU_MEDIUM_BUTTON:
-                    GameController.SetDifficulty(AIOption.Hard);
-                    break;
-                case SETUP_MENU_HARD_BUTTON:
-                    GameController.SetDifficulty(AIOption.Hard);
-                    break;
-            }
-            //Always end state - handles exit button as well
-            GameController.EndCurrentState();
-        }
+		private static void PerformSetupMenuAction(int button)
+		{
+			switch (button)
+			{
+			case SETUP_MENU_EASY_BUTTON: GameController.SetDifficulty(AIOption.Easy);
+				break;
+			case SETUP_MENU_MEDIUM_BUTTON: GameController.SetDifficulty(AIOption.Medium);
+				break;
+			case SETUP_MENU_HARD_BUTTON: GameController.SetDifficulty(AIOption.Hard);
+				break;
+			}
+			//Always end state - handles exit button as well
+			GameController.EndCurrentState();
+		}
 
         /// <summary>
         /// The game menu was clicked, perform the button's action.
