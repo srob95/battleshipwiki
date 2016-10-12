@@ -286,6 +286,7 @@ namespace Battleships
         {
             //Read incoming input events
             SwinGame.ProcessEvents();
+			//Mute function
 			if (SwinGame.KeyTyped (KeyCode.vk_m))
 			{
 				switch (musicOn)
@@ -296,15 +297,13 @@ namespace Battleships
 					break;
 				case false:
 					SwinGame.ResumeMusic ();
-					SwinGame.PlaySoundEffect();
 					musicOn = true;
 					break;
 				}
 
 			}
 
-
-			switch (CurrentState)
+            switch (CurrentState)
             {
                 case GameState.ViewingMainMenu:
 					MenuController.HandleMainMenuInput();
